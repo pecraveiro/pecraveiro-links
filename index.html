@@ -13,6 +13,87 @@
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
     
+<!-- Scripts -->
+       
+
+            <script>
+        if (document.addEventListener) {
+            document.addEventListener("keydown", bloquearSource);
+        } else { //Versões antigas do IE
+            document.attachEvent("onkeydown", bloquearSource);
+        }
+
+        function bloquearSource(e) {
+            e = e || window.event;
+
+            var code = e.which || e.keyCode;
+
+            if (
+                e.ctrlKey &&
+                (code == 83 || code == 85) //83 = S, 85 = U
+            ) {
+                if (e.preventDefault) {
+                    e.preventDefault();
+                } else {
+                    e.returnValue = false;
+                }
+
+                return false;
+            }
+        }
+        </script>
+
+        <style>
+        /*desabilita a seleção no body*/
+        body {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Chrome/Safari/Opera */
+            -khtml-user-select: none; /* Konqueror */
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* Internet Explorer/Edge */
+                    user-select: none;
+        }
+
+        /*habilita a seleção nos campos editaveis*/
+        input, textarea {
+            -webkit-touch-callout: initial; /* iOS Safari */
+            -webkit-user-select: text; /* Chrome/Safari/Opera */
+            -khtml-user-select: text; /* Konqueror */
+                -moz-user-select: text; /* Firefox */
+                -ms-user-select: text; /* Internet Explorer/Edge */
+                    user-select: text;
+        }
+
+        /*habilita a seleção nos campos com o atributo contenteditable*/
+        [contenteditable=true] {
+            -webkit-touch-callout: initial; /* iOS Safari */
+            -webkit-user-select: all; /* Chrome/Safari/Opera */
+            -khtml-user-select: all; /* Konqueror */
+                -moz-user-select: all; /* Firefox */
+                -ms-user-select: all; /* Internet Explorer/Edge */
+                    user-select: all;
+        }
+        </style>
+            
+        <script>
+        if (document.addEventListener) {
+            document.addEventListener("contextmenu", function(e) {
+                e.preventDefault();
+                return false;
+            });
+        } else { //Versões antigas do IE
+            document.attachEvent("oncontextmenu", function(e) {
+                e = e || window.event;
+                e.returnValue = false;
+                return false;
+            });
+        }
+        </script>
+    <!-- Fim dos Scripts-->
+
+
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="icon" href="favicon.ico" type="image/x-icon">
     
     <script type="application/ld+json">{
 		"@context": "http://schema.org",
